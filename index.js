@@ -9,8 +9,8 @@ const wss = new WebSocket.Server({
 
 wss.on('connection', (ws) => {
     ws.send(JSON.stringify({ 
-        sender: 'system',
-        message: 'Welcome to the chat!' 
+        sender: 'System',
+        message: 'Welcome to the chatroom!' 
     }));
 
     ws.on('message', (e) => {

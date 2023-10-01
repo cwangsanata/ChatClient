@@ -26,3 +26,7 @@
     font-size: 15px;
     flex-grow: 1;
 }
+
+.sender {
+    font-weight: bolder;
+}

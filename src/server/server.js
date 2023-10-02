@@ -36,7 +36,7 @@ wss.on('connection', (ws) => {
 });
 
 // Serve static files from the public directory
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 
 const port = 1337;
 app.listen(port, () => {

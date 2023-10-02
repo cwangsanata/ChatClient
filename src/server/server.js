@@ -9,8 +9,8 @@ const wss = new WebSocket.Server({
 
 wss.on('connection', (ws) => {
     ws.send(JSON.stringify({ 
-        sender: 'system',
-        message: 'Welcome to the chat!' 
+        sender: 'System',
+        message: 'Welcome to the chatroom!' 
     }));
 
     ws.on('message', (e) => {
@@ -36,7 +36,7 @@ wss.on('connection', (ws) => {
 });
 
 // Serve static files from the public directory
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 
 const port = 1337;
 app.listen(port, () => {

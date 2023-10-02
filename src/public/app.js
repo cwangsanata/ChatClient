@@ -26,7 +26,7 @@ function appendToChatbox({ sender, message }) {
 
     const senderDiv = document.createElement('div');
     senderDiv.className = 'sender';
-    senderDiv.textContent = sender;
+    senderDiv.textContent = sender +": ";
 
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message';

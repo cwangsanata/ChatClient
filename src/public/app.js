@@ -7,20 +7,24 @@ const ws = new WebSocket(`ws://${document.location.hostname}:1338`);
 // 4. Authenticated chat (registration/login)
 // 5. More of system generated messages
 // 6. Thinking about how you can make it scalable (choosing API Gateway + WebSocket + Redis/ElastiCache for manging all the temp state + using dynamodb or mongoDb mysql, for managing full permanent state)
+// 7. Remove console.logs
 // `;
 
-const username = localStorage.getItem('username') || prompt('What do you want your username to be?') || 'anonymous';
+const username = localStorage.getItem('username') || prompt('What do you want your username to be?') || 'Anonymous';
 let message_log = JSON.parse(localStorage.getItem('messages')) || [];
 
 localStorage.setItem('username', username);
 localStorage.setItem('messages', JSON.stringify(message_log));
 
 ws.addEventListener('open', connectionOpen);
+ws.addEventListener('open', loadLocalStorage);
 ws.addEventListener('message', handleSocketMessage);
 
 function connectionOpen() {
     console.log('Websocket connection established');
-    // load the localstorage messages
+}
+
+function loadLocalStorage() {
     for(const message of message_log) {
         appendToChatbox(message);
     }

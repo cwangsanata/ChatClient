@@ -10,14 +10,20 @@ const ws = new WebSocket(`ws://${document.location.hostname}:1338`);
 // `;
 
 const username = localStorage.getItem('username') || prompt('What do you want your username to be?') || 'anonymous';
+let message_log = JSON.parse(localStorage.getItem('messages')) || [];
 
 localStorage.setItem('username', username);
+localStorage.setItem('messages', JSON.stringify(message_log));
 
 ws.addEventListener('open', connectionOpen);
 ws.addEventListener('message', handleSocketMessage);
 
 function connectionOpen() {
     console.log('Websocket connection established');
+    // load the localstorage messages
+    for(const message of message_log) {
+        appendToChatbox(message);
+    }
 }
 
 function appendToChatbox({ sender, message }) {
@@ -38,16 +44,22 @@ function appendToChatbox({ sender, message }) {
     document.getElementById('chat').appendChild(div);
 }
 
+// From the server
 function handleSocketMessage(e) {
     try {
         const realMessage = JSON.parse(e.data);
         const { sender, message } = realMessage;
         appendToChatbox({ sender, message })
+
+        // Store the message in local storage
+        message_log.push({sender, message});
+        localStorage.setItem('messages', JSON.stringify(message_log));
     } catch(error) {
         console.log('Received non JSON message from server: ', e.data)
     }
 }
 
+// From the client
 function runHandler(e) {
     e.preventDefault()
 

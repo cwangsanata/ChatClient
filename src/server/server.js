@@ -8,11 +8,6 @@ const wss = new WebSocket.Server({
 });
 
 wss.on('connection', (ws) => {
-    ws.send(JSON.stringify({ 
-        sender: 'System',
-        message: 'Welcome to the chatroom!' 
-    }));
-
     ws.on('message', (e) => {
         const rawMessage = Buffer.from(e).toString();
         try {

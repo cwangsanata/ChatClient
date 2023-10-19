@@ -1,5 +1,5 @@
 {
-  "name": "ChatClient",
+  "name": "chatclient",
   "version": "1.0.0",
   "main": "src/server/server.js",
   "scripts": {
@@ -14,6 +14,11 @@
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-  "watch": ["src/public","src/server"],
-  "ext": "js"
+  "watch": [
+    "src/public",
+    "src/server"
+  ],
+  "ext": "js",
+  "description": "This is a simple WebSocket-based chat application where users can exchange messages in real-time. The application is built using JavaScript on both the client and server sides. It utilizes the WebSocket protocol for bi-directional communication between clients and the server.",
+  "author": ""
 }

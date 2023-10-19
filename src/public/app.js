@@ -1,13 +1,13 @@
 const ws = new WebSocket(`ws://${document.location.hostname}:1338`);
 
-const TODO = `
-1. Customizing own messages
-2. Customizing the full UI of the chat
-3. Choose a room & then storing the messages on backend in a room
-4. Authenticated chat (registration/login)
-5. More of system generated messages
-6. Thinking about how you can make it scalable (choosing API Gateway + WebSocket + Redis/ElastiCache for manging all the temp state + using dynamodb or mongoDb mysql, for managing full permanent state)
-`;
+// const TODO = `
+// 1. Customizing own messages
+// 2. Customizing the full UI of the chat
+// 3. Choose a room & then storing the messages on backend in a room
+// 4. Authenticated chat (registration/login)
+// 5. More of system generated messages
+// 6. Thinking about how you can make it scalable (choosing API Gateway + WebSocket + Redis/ElastiCache for manging all the temp state + using dynamodb or mongoDb mysql, for managing full permanent state)
+// `;
 
 const username = localStorage.getItem('username') || prompt('What do you want your username to be?') || 'anonymous';
 

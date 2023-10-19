@@ -68,6 +68,9 @@ function runHandler(e) {
         const message = field.value;
         field.value = '';
         console.log(`Trying to send this message on socket: ${message}`);
+        if (message === '' ) {
+            return;
+        }
         ws.send(JSON.stringify({
             sender: username,
             message

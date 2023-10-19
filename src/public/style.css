@@ -2,6 +2,7 @@
     width: 100%;
     min-height: 80vh;
     background: rgb(227, 227, 227);
+    border-color: black;
 }
 
 #message-field {
@@ -9,6 +10,7 @@
     display: block;
     margin-top: 10px;
     font-size: 18px;
+    font-weight: bolder;
 }
 
 .message-row {
@@ -16,10 +18,9 @@
 }
 
 .sender {
-    background: black;
-    color: white;
     margin-right: 10px;
     flex-shrink: 0;
+    font-weight: bolder;
 }
 
 .message {
